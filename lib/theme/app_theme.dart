@@ -15,5 +15,18 @@ class AppTheme {
       centerTitle: true,
       elevation: 0,
     ),
+
+    textTheme: TextTheme(
+      headlineMedium: const TextStyle(
+        fontSize: 36,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+
+      bodyLarge: TextStyle(
+        fontSize: 18,
+        color: Colors.white.withOpacity(0.9),
+      ),
+    ),
   );
 }

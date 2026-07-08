@@ -128,8 +128,8 @@
 //   }
 // }
 
+import '../widgets/gender_card.dart';
 import '../widgets/header_widget.dart';
-
 
 import 'package:flutter/material.dart';
 
@@ -141,13 +141,68 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isMale = true;
+
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
 
-          HeaderWidget(),
+          const HeaderWidget(),
+
+          const SizedBox(height: 25),
+
+          const Text(
+            "Select Gender",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 25),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: GenderCard(
+                      icon: Icons.man,
+                      title: "Male",
+                      isSelected: isMale,
+                      onTap: (){
+                        setState(() {
+                          isMale = true;
+                        });
+                      },
+                    ),
+                ),
+
+                SizedBox(width: 16),
+
+                Expanded(
+                  child: GenderCard(
+                        icon: Icons.woman,
+                        title: "Female",
+                        isSelected: !isMale,
+                        onTap: (){
+                          setState(() {
+                            isMale = false;
+                          });
+                        },
+                      ),
+                ),
+
+
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 25),
 
         ],
       )

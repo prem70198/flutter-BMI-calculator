@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -7,13 +8,13 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 240,
+      height: 260,
 
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xff5B5FEF),
-            Color(0xff7C4DFF),
+            AppColors.primary,
+            AppColors.secondary,
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -23,32 +24,45 @@ class HeaderWidget extends StatelessWidget {
           bottomLeft: Radius.circular(35),
           bottomRight: Radius.circular(35),
         ),
+
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 12,
+            offset: Offset(0, 6),
+          ),
+        ],
       ),
 
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          Text(
-            "BMI Calculator",
-            style: TextStyle(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 30,),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.monitor_weight_rounded,
               color: Colors.white,
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
+              size: 50,
             ),
-          ),
 
-          SizedBox(height: 12),
+            SizedBox(height: 10),
 
-          Text(
-            "Calculate your Body Mass Index",
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 18,
+            Text(
+              "BMI Calculator",
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-          ),
 
-        ],
+            SizedBox(height: 12),
+
+            Text(
+              "Calculate your Body Mass Index",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+
+          ],
+        ),
       ),
     );
   }
