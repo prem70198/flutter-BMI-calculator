@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 void main() {
@@ -17,3 +18,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

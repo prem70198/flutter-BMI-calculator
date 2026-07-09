@@ -38,31 +38,31 @@ class HeaderWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 30,),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.monitor_weight_rounded,
-              color: Colors.white,
-              size: 50,
-            ),
-
-            SizedBox(height: 10),
-
-            Text(
-              "BMI Calculator",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-
-            SizedBox(height: 12),
-
-            Text(
-              "Calculate your Body Mass Index",
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-
-          ],
-        ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.monitor_weight_rounded,
+                color: Colors.white,
+                size: 50,
+              ),
+          
+              SizedBox(height: 10),
+          
+              Text(
+                "BMI Calculator",
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+          
+              SizedBox(height: 12),
+          
+              Text(
+                "Calculate your Body Mass Index",
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+          
+            ],
+          ),
       ),
     );
   }

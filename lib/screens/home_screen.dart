@@ -128,6 +128,8 @@
 //   }
 // }
 
+import 'package:bmi_application/widgets/height.dart';
+
 import '../widgets/gender_card.dart';
 import '../widgets/header_widget.dart';
 
@@ -142,7 +144,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isMale = true;
-
+  double height = 170;
 
   @override
   Widget build(BuildContext context) {
@@ -203,6 +205,33 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           const SizedBox(height: 25),
+
+          const Text(
+            "Select Height",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 25),
+
+          HeightCard(
+            height: height,
+            onChanged: (value) {
+              setState(() {
+                height = value;
+              });
+            },
+          ),
+
+          Text(
+            "Selected Height : ${height.toInt()} cm",
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
 
         ],
       )
