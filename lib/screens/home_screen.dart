@@ -130,8 +130,11 @@
 
 import 'package:bmi_application/widgets/height.dart';
 
+import '../widgets/calculate_button.dart';
 import '../widgets/gender_card.dart';
 import '../widgets/header_widget.dart';
+
+import 'result_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -150,6 +153,42 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int weight = 65;
   int age = 22;
+
+  void calculateBMI() {
+      double heightInMeter = height/100;
+
+      double bmi = weight / (heightInMeter * heightInMeter);
+
+      print(bmi.toStringAsFixed(2));
+
+      String result;
+      String message;
+
+      if (bmi < 18.5) {
+        result = "Underweight";
+        message = "You should eat a balanced diet to gain healthy weight.";
+      } else if (bmi < 25) {
+        result = "Normal";
+        message = "Great! Your BMI is in the healthy range.";
+      } else if (bmi < 30) {
+        result = "Overweight";
+        message = "Try regular exercise and maintain a balanced diet.";
+      } else {
+        result = "Obese";
+        message = "Consider consulting a healthcare professional for guidance.";
+      }
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ResultScreen(
+            bmi: bmi,
+            result: result,
+            message: message,
+          ),
+        ),
+      );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -290,6 +329,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+
+              CalculateButton(onPressed: calculateBMI),
           
             ],
           ),
