@@ -135,6 +135,8 @@ import '../widgets/header_widget.dart';
 
 import 'package:flutter/material.dart';
 
+import '../widgets/value_card.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -146,94 +148,152 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isMale = true;
   double height = 170;
 
+  int weight = 65;
+  int age = 22;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-
-          const HeaderWidget(),
-
-          const SizedBox(height: 25),
-
-          const Text(
-            "Select Gender",
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const SizedBox(height: 25),
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: GenderCard(
-                      icon: Icons.man,
-                      title: "Male",
-                      isSelected: isMale,
-                      onTap: (){
-                        setState(() {
-                          isMale = true;
-                        });
-                      },
-                    ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+          
+              const HeaderWidget(),
+          
+              const SizedBox(height: 25),
+          
+              const Text(
+                "Select Gender",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+          
+              const SizedBox(height: 25),
+          
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: GenderCard(
+                          icon: Icons.man,
+                          title: "Male",
+                          isSelected: isMale,
+                          onTap: (){
+                            setState(() {
+                              isMale = true;
+                            });
+                          },
+                        ),
+                    ),
+          
+                    SizedBox(width: 16),
+          
+                    Expanded(
+                      child: GenderCard(
+                            icon: Icons.woman,
+                            title: "Female",
+                            isSelected: !isMale,
+                            onTap: (){
+                              setState(() {
+                                isMale = false;
+                              });
+                            },
+                          ),
+                    ),
+          
+          
+                  ],
+                ),
+              ),
+          
+              const SizedBox(height: 25),
+          
+              const Text(
+                "Select Height",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+          
+              const SizedBox(height: 25),
+          
+              HeightCard(
+                height: height,
+                onChanged: (value) {
+                  setState(() {
+                    height = value;
+                  });
+                },
+              ),
+          
+              Text(
+                "Selected Height : ${height.toInt()} cm",
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
 
-                SizedBox(width: 16),
+              const SizedBox(height: 20),
 
-                Expanded(
-                  child: GenderCard(
-                        icon: Icons.woman,
-                        title: "Female",
-                        isSelected: !isMale,
-                        onTap: (){
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+
+                    Expanded(
+                      child: ValueCard(
+                        title: "WEIGHT",
+                        value: weight,
+                        onIncrement: () {
                           setState(() {
-                            isMale = false;
+                            weight++;
+                          });
+                        },
+                        onDecrement: () {
+                          setState(() {
+                            if(weight > 1){
+                              weight--;
+                            }
                           });
                         },
                       ),
+                    ),
+
+                    const SizedBox(width: 16),
+
+                    Expanded(
+                      child: ValueCard(
+                        title: "AGE",
+                        value: age,
+                        onIncrement: () {
+                          setState(() {
+                            age++;
+                          });
+                        },
+                        onDecrement: () {
+                          setState(() {
+                            if(age > 1){
+                              age--;
+                            }
+                          });
+                        },
+                      ),
+                    ),
+
+                  ],
                 ),
-
-
-              ],
-            ),
+              ),
+          
+            ],
           ),
-
-          const SizedBox(height: 25),
-
-          const Text(
-            "Select Height",
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const SizedBox(height: 25),
-
-          HeightCard(
-            height: height,
-            onChanged: (value) {
-              setState(() {
-                height = value;
-              });
-            },
-          ),
-
-          Text(
-            "Selected Height : ${height.toInt()} cm",
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-        ],
+        ),
       )
     );
   }
