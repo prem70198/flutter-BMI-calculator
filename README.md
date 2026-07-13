@@ -189,10 +189,10 @@ B.Tech CSE Student
 Flutter Developer
 
 GitHub:
-https://github.com/YOUR_USERNAME
+https://github.com/prem70198
 
 LinkedIn:
-https://linkedin.com/in/YOUR_PROFILE
+https://linkedin.com/in/prince-kumar-2318ab336
 
 ---
 
