@@ -124,7 +124,7 @@ lib/
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/flutter-BMI-calculator.git
+git clone https://github.com/prem70198/flutter-BMI-calculator.git
 ```
 
 Move into the project
