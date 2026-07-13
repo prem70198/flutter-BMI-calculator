@@ -28,7 +28,7 @@ class GenderCard extends StatelessWidget{
             duration: Duration(milliseconds: 300),
             // height: 130,
             // width: 150,
-            height: isSelected ? 145 : 130,
+            height: isSelected ? 115 : 110,
             //width: isSelected ? 180 : 120,
 
             decoration: BoxDecoration(
@@ -40,7 +40,10 @@ class GenderCard extends StatelessWidget{
                     : Colors.grey.shade300,
                 width: 2,
               ),
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(45),
+            topRight: Radius.circular(45)
+          ),
 
           boxShadow: [
             const BoxShadow(

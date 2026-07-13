@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ValueCard extends StatelessWidget {
   final String title;
   final int value;
+  final IconData icon;
   final VoidCallback onIncrement;
   final VoidCallback onDecrement;
 
@@ -10,6 +11,7 @@ class ValueCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.value,
+    required this.icon,
     required this.onIncrement,
     required this.onDecrement,
   });
@@ -32,6 +34,12 @@ class ValueCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Icon(
+            icon,
+            size: 26,
+            color: Colors.deepPurple,
+          ),
+
           Text(
             title,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(

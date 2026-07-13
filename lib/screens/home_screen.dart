@@ -270,6 +270,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
+
+              const SizedBox(height: 25),
           
               Text(
                 "Selected Height : ${height.toInt()} cm",
@@ -290,6 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ValueCard(
                         title: "WEIGHT",
                         value: weight,
+                        icon: Icons.scale,
                         onIncrement: () {
                           setState(() {
                             weight++;
@@ -311,6 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ValueCard(
                         title: "AGE",
                         value: age,
+                        icon: Icons.cake,
                         onIncrement: () {
                           setState(() {
                             age++;

@@ -28,6 +28,28 @@ class ResultScreen extends StatelessWidget{
     }
   }
 
+
+// CHANGED: Dynamic Result Icon
+
+  IconData getResultIcon() {
+    switch (result) {
+      case "Normal":
+        return Icons.sentiment_satisfied_alt;
+
+      case "Underweight":
+        return Icons.sentiment_dissatisfied;
+
+      case "Overweight":
+        return Icons.sentiment_neutral;
+
+      case "Obese":
+        return Icons.warning_amber;
+
+      default:
+        return Icons.health_and_safety;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,9 +104,9 @@ class ResultScreen extends StatelessWidget{
                       radius: 42,
                       backgroundColor: AppColors.primary.withOpacity(.1),
                       child: Icon(
-                        Icons.health_and_safety,
+                        getResultIcon(),
                         size: 40,
-                        color: AppColors.primary,
+                        color: getResultColor(),
                       ),
                     ),
 

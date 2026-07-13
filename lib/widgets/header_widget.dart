@@ -8,7 +8,7 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 260,
+      height: 220,
 
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -37,12 +37,12 @@ class HeaderWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
-          vertical: 30,),
+          vertical: 20,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                Icons.monitor_weight_rounded,
+                Icons.health_and_safety,
                 color: Colors.white,
                 size: 50,
               ),
@@ -50,7 +50,7 @@ class HeaderWidget extends StatelessWidget {
               SizedBox(height: 10),
           
               Text(
-                "BMI Calculator",
+                "FitTrack BMI",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
           

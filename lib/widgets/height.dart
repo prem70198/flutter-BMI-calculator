@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../utils/colors.dart';
+
 class HeightCard extends StatelessWidget{
   final double height ;
   final ValueChanged<double> onChanged;
@@ -19,30 +21,39 @@ class HeightCard extends StatelessWidget{
           width: double.infinity,
           height: 200,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(40),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
-                  blurRadius: 18,
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 10,
                   spreadRadius: 2,
-                  offset: const Offset(0, 8),
+                  offset: const Offset(0, 6),
                 ),
               ]
           ),
 
           child: Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(height: 18),
-                Text('HEIGHT',
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey,
-                    letterSpacing: 2,
-                    fontWeight: FontWeight.w800,
-                  ),),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    SizedBox(width: 10,),
+                    Icon(Icons.straighten,
+                    size: 30,
+                    color: AppColors.primary,),
+                    SizedBox(width: 140,),
+                    Text('HEIGHT',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey,
+                        letterSpacing: 2,
+                        fontWeight: FontWeight.w800,
+                      ),),
+                  ],
+                ),
 
                 const SizedBox(height: 15),
 
@@ -95,7 +106,31 @@ class HeightCard extends StatelessWidget{
                       max: 220,
                       onChanged: onChanged,
                   ),
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "120 cm",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(
+                        "220 cm",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
